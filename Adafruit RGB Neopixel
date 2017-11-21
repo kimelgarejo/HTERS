@@ -1,0 +1,237 @@
+#include <Adafruit_NeoPixel.h>
+#define PIN        6
+#define NUMPIXELS 40
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+void setPixel(int Pixel, byte red, byte green, byte blue) {
+ #ifdef ADAFRUIT_NEOPIXEL_H 
+   // NeoPixel
+   strip.setPixelColor(Pixel, strip.Color(red, green, blue));
+ #endif
+ #ifndef ADAFRUIT_NEOPIXEL_H 
+   // FastLED
+   leds[Pixel].r = red;
+   leds[Pixel].g = green;
+   leds[Pixel].b = blue;
+ #endif
+}
+
+
+void setup() {
+  strip.begin();
+  strip.show(); 
+}
+
+
+void setblack(int i) {
+    setPixel(i, 0, 0, 0);
+//  strip.show();  
+}
+
+void setblue(int i) {
+    setPixel(i, 0, 0, 255);
+ // strip.show();  
+}
+
+void setbrown(int i) {
+    setPixel(i, 153, 102, 51);
+//  strip.show();  
+}
+
+void setcyan(int i) {
+    setPixel(i, 0, 255, 255);
+///  strip.show();  
+}
+
+void setgreen(int i) {
+    setPixel(i, 0, 255, 0);
+ // strip.show();  
+}
+
+void setpink(int i) {
+    setPixel(i, 255, 0, 255);
+  //strip.show();  
+}
+
+void setorange(int i) {
+    setPixel(i, 255, 128, 0);
+ // strip.show();  
+  
+}
+void setviolet(int i) {
+    setPixel(i, 128, 0, 128);
+  //strip.show();  
+}
+
+void setred(int i) {
+    setPixel(i, 255, 0, 0);
+  //strip.show();  
+  
+}
+void setyellow(int i) {
+    setPixel(i, 255, 255, 0);
+  //s/trip.show();  
+}
+
+void setorange2(int i) {
+    setPixel(i, 255, 61, 0);
+  //strip.show();  
+  
+}
+void setyellow2(int i) {
+    setPixel(i, 255, 233, 0);
+  //strip.show();  
+  
+}
+void setyellowgreen(int i) {
+    setPixel(i, 39, 255, 0);
+  //strip.show();  
+}
+
+void setbluegreen(int i) {
+    setPixel(i, 0, 255, 169);
+  //strip.show();  
+}
+
+void setblue2(int i) {
+    setPixel(i, 46, 0, 253);
+  //strip.show();  
+}
+
+void setviolet2(int i) {
+    setPixel(i, 93, 0, 255);
+  ///strip.show();  
+}
+
+void setviolet3(int i) {
+    setPixel(i, 190, 0, 255);
+//  strip.show();  
+}
+
+void setdarkblue(int i) {
+    setPixel(i, 31, 0, 97);
+  //strip.show();  
+}
+
+#define G_BLACK 0
+#define G_BLUE 1
+#define G_RED 2
+#define G_PINK 3
+#define G_BROWN 4
+#define G_GREEN 5
+#define G_CYAN 6
+#define G_ORANGE 7
+#define G_VIOLET 8
+#define G_YELLOW 9
+#define G_ORANGE2 10
+#define G_YELLOW2 11
+#define G_YELLOWGREEN 12
+#define G_BLUEGREEN 13
+#define G_BLUE2 14
+#define G_VIOLET2 15
+#define G_VIOLET3 16
+#define G_DARKBLUE 17
+int j;
+
+void setstripcolor(int color) {
+  switch (color) {
+    
+    case G_BLUE:
+      //do something when var equals 1
+      for(j=0; j<NUMPIXELS; j++)
+         setblue(j);
+      break;
+    
+    case G_RED:
+      for(j=0; j<NUMPIXELS; j++)
+        setred(j);
+      break;
+     
+     case G_PINK:
+      for(j=0; j<NUMPIXELS; j++)
+        setpink(j);
+      break;
+     
+     case G_BROWN:
+      for(j=0; j<NUMPIXELS; j++)
+        setbrown(j);
+      break;
+     
+     case G_GREEN:
+      for(j=0; j<NUMPIXELS; j++)
+        setgreen(j);
+      break;
+     
+     case G_CYAN:
+      for(j=0; j<NUMPIXELS; j++)
+        setcyan(j);
+      break;
+     
+     case G_ORANGE:
+      for(j=0; j<NUMPIXELS; j++)
+        setorange(j);
+      break;
+     
+     case G_VIOLET:
+      for(j=0; j<NUMPIXELS; j++)
+        setviolet(j);
+      break;
+     
+     case G_YELLOW:
+      for(j=0; j<NUMPIXELS; j++)
+        setyellow(j);
+      break;
+
+     case G_ORANGE2:
+      for(j=0; j<NUMPIXELS; j++)
+        setorange(j);
+      break;
+
+     case G_YELLOW2:
+      for(j=0; j<NUMPIXELS; j++)
+        setyellow2(j);
+      break;
+
+     case G_YELLOWGREEN:
+      for(j=0; j<NUMPIXELS; j++)
+        setyellowgreen(j);
+      break;
+
+     case G_BLUEGREEN:
+      for(j=0; j<NUMPIXELS; j++)
+        setbluegreen(j);
+      break;
+
+     case G_VIOLET2:
+      for(j=0; j<NUMPIXELS; j++)
+        setviolet2(j);
+      break;
+
+     case G_VIOLET3:
+      for(j=0; j<NUMPIXELS; j++)
+        setviolet3(j);
+      break;
+
+     case G_DARKBLUE:
+      for(j=0; j<NUMPIXELS; j++)
+        setdarkblue(j);
+      break;
+    
+    default: 
+      // if nothing else matches, do the default
+      // default is optional
+       for(j=0; j<NUMPIXELS; j++)
+          setPixel(j, 255, 255, 255);
+    break;
+  }
+
+}
+void loop() {
+  
+  for (int i=0; i<=(G_DARKBLUE+1); i++) {
+      setstripcolor(i);
+      strip.show();
+      delay(1000);
+  }
+}
