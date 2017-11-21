@@ -1,0 +1,11 @@
+const int RelayPin = 2;
+       
+void setup() {   
+  pinMode(RelayPin, OUTPUT);
+} 
+void loop() {   
+  digitalWrite(RelayPin, HIGH);   //Turn on relay  
+  delay(1000);           
+  digitalWrite(RelayPin, LOW);   //Turn off relay        
+   delay(1000);
+}
